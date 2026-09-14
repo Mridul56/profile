@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mridul Gupta — Head of Engineering</title>
+<meta name="description" content="Mridul Gupta — Head of Engineering at Zolve. 13 years across fintech architecture, AI & agentic systems, distributed realtime systems and mobile. Bengaluru, India.">
+<meta name="theme-color" content="#0A0B10">
+<meta property="og:title" content="Mridul Gupta — Head of Engineering">
+<meta property="og:description" content="Engineering leadership across fintech, distributed systems and AI. 100+ production agents at Zolve, 16M+ students reached at Noon.">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0B10'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='15' font-weight='700' fill='%236B8CFF' text-anchor='middle'%3EMG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:oklch(0.16 0.015 270);          /* near-black */
+    --ink-2:oklch(0.21 0.02 268);
+    --line:oklch(0.32 0.03 268);
+    --ivory:oklch(0.97 0.008 90);
+    --ivory-dim:oklch(0.78 0.015 268);
+    --blue:oklch(0.68 0.19 264);          /* electric blue — text-safe on ink */
+    --blue-deep:oklch(0.45 0.24 264);     /* fills, outlines */
+    --font-d:'Archivo', sans-serif;
+    --font-m:'JetBrains Mono', monospace;
+    --ease:cubic-bezier(0.22,1,0.36,1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:var(--font-d);
+    background:var(--ink);
+    color:var(--ivory);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+  a{color:inherit; transition:color 0.15s ease, border-color 0.15s ease, background 0.15s ease;}
+  ::selection{background:var(--blue-deep); color:var(--ivory);}
+  :focus-visible{outline:2px solid var(--blue); outline-offset:4px;}
+  h1,h2,h3{text-wrap:balance;}
+  p{text-wrap:pretty;}
+
+  .skip-link{
+    position:fixed; left:16px; top:-72px; z-index:100;
+    background:var(--blue); color:var(--ink);
+    font-family:var(--font-m); font-size:13px; font-weight:700;
+    padding:14px 20px; text-decoration:none;
+    transition:top 0.15s ease;
+  }
+  .skip-link:focus{top:16px;}
+
+  /* ---------- DECK ---------- */
+  .deck{
+    height:100svh;
+    overflow-y:auto;
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+  }
+  .deck::-webkit-scrollbar{display:none;}
+  .slide{
+    min-height:100svh;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    padding:clamp(72px,10vh,110px) clamp(24px,6vw,96px);
+    max-width:1400px;
+    margin:0 auto;
+  }
+
+  /* slide chrome */
+  .slide .sig{
+    position:absolute; top:clamp(22px,3.5vh,36px); left:clamp(24px,6vw,96px);
+    font-family:var(--font-m); font-size:clamp(13.5px,1.5vw,16px); letter-spacing:0.06em;
+    color:var(--ivory); text-transform:uppercase; font-weight:500;
+  }
+  .slide .sig b{color:var(--blue); font-weight:700;}
+
+  /* staged entrance — visible by default; JS arms it, reduced-motion disarms it */
+  .anim{transition:opacity 0.7s var(--ease), transform 0.7s var(--ease);}
+  .armed .slide:not(.on) .anim{opacity:0; transform:translateY(28px);}
+  .armed .slide.on .anim{opacity:1; transform:none;}
+  .slide .anim:nth-child(2), .slide .d1{transition-delay:0.08s;}
+  .slide .d2{transition-delay:0.16s;}
+  .slide .d3{transition-delay:0.24s;}
+  .slide .d4{transition-delay:0.32s;}
+
+  /* ---------- HUD ---------- */
+  .hud{
+    position:fixed; z-index:40;
+    right:clamp(20px,4vw,48px); bottom:clamp(20px,4vh,36px);
+    display:flex; align-items:center; gap:18px;
+    font-family:var(--font-m); font-size:12.5px; color:var(--ivory-dim);
+  }
+  .hud .count b{color:var(--ivory); font-weight:700;}
+  .hud .keys{display:flex; gap:8px;}
+  .hud button{
+    width:44px; height:44px;
+    background:none; border:1px solid var(--line); color:var(--ivory);
+    font-size:15px; cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .hud button:hover{background:var(--blue-deep); border-color:var(--blue-deep);}
+  .hud button:disabled{opacity:0.3; cursor:default; background:none;}
+  .progress{
+    position:fixed; top:0; left:0; z-index:40;
+    height:2px; width:0%;
+    background:var(--blue);
+    transition:width 0.3s var(--ease);
+  }
+  .hint{
+    position:fixed; left:clamp(24px,6vw,96px); bottom:clamp(20px,4vh,36px); z-index:40;
+    font-family:var(--font-m); font-size:11.5px; letter-spacing:0.06em;
+    color:var(--ivory-dim); text-transform:uppercase;
+  }
+  .alt-view{
+    position:fixed; right:clamp(20px,4vw,48px); top:clamp(20px,4vh,36px); z-index:40;
+    font-family:var(--font-m); font-size:12.5px; font-weight:500;
+    letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--ivory-dim); text-decoration:none;
+    padding:10px 14px; border:1px solid var(--line);
+  }
+  .alt-view:hover{color:var(--ink); background:var(--blue); border-color:var(--blue);}
+
+  /* ---------- TYPE ---------- */
+  .kicker{
+    font-family:var(--font-m); font-size:clamp(13px,1.4vw,15.5px);
+    color:var(--blue); letter-spacing:0.1em; text-transform:uppercase;
+    margin-bottom:26px; font-weight:500;
+  }
+  .display{
+    font-weight:800;
+    font-size:clamp(44px,9vw,124px);
+    line-height:0.98;
+    letter-spacing:-0.025em;
+  }
+  .display .thin{font-weight:300; letter-spacing:-0.01em;}
+  .display .blue{color:var(--blue);}
+  .display .outline{
+    color:transparent; -webkit-text-stroke:1.5px var(--ivory-dim);
+  }
+  @supports not (-webkit-text-stroke:1px black){ .display .outline{color:var(--ivory-dim);} }
+  .lede{
+    font-size:clamp(17.5px,2.2vw,23px); font-weight:300;
+    color:var(--ivory-dim); max-width:640px; margin-top:30px;
+    line-height:1.65;
+  }
+  .lede strong{color:var(--ivory); font-weight:600;}
+
+  /* ---------- SLIDE 1 : TITLE ---------- */
+  .s-title .contact-row{
+    display:flex; gap:12px 28px; flex-wrap:wrap; margin-top:48px;
+    font-family:var(--font-m); font-size:15px;
+  }
+  .s-title .contact-row a{
+    text-decoration:none; color:var(--ivory-dim);
+    padding:12px 0; border-bottom:1px solid var(--line);
+  }
+  .s-title .contact-row a:hover{color:var(--blue); border-color:var(--blue);}
+
+  /* ---------- NUMBERS WALL ---------- */
+  .wall{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
+    gap:0; border-top:1px solid var(--line);
+    margin-top:28px;
+  }
+  .wall .cell{
+    padding:clamp(22px,3.8vh,38px) 30px clamp(22px,3.8vh,38px) 0;
+    border-bottom:1px solid var(--line);
+    transition:background 0.25s ease;
+    cursor:pointer; text-align:left; background:none; color:inherit; font:inherit;
+    position:relative;
+  }
+  .wall .cell:hover{background:var(--ink-2);}
+  .wall .cell:hover b{color:var(--blue);}
+  .wall .cell:hover .open-hint{opacity:1;}
+  .open-hint{
+    position:absolute; top:clamp(22px,3.8vh,38px); right:16px;
+    font-family:var(--font-m); font-size:11.5px; font-weight:700;
+    color:var(--blue); letter-spacing:0.06em; text-transform:uppercase;
+    opacity:0; transition:opacity 0.2s ease;
+  }
+  .wall .cell .lab{
+    display:block; font-family:var(--font-m); font-size:12px; font-weight:700;
+    color:var(--blue); text-transform:uppercase; letter-spacing:0.1em;
+    margin-bottom:12px;
+  }
+  .wall .cell b{
+    display:block; font-family:var(--font-m); font-weight:700;
+    font-size:clamp(46px,5.5vw,78px); color:var(--ivory);
+    letter-spacing:-0.03em; line-height:1;
+    transition:color 0.25s ease;
+  }
+  .wall .cell b .u{color:var(--blue); font-size:0.55em; font-weight:500;}
+  .wall .cell em{
+    display:block; font-style:normal; margin-top:10px;
+    font-size:clamp(16px,1.7vw,19px); font-weight:600; color:var(--ivory);
+  }
+  .wall .cell .det{
+    display:block; margin-top:8px; font-size:14.5px; color:var(--ivory-dim);
+    font-weight:300; line-height:1.55; max-width:340px;
+  }
+
+  /* ---------- DEEP-DIVE OVERLAY ---------- */
+  .overlay{
+    position:fixed; inset:0; z-index:80;
+    background:var(--ink);
+    overflow-y:auto; overscroll-behavior:contain;
+    transform:translateY(100%);
+    transition:transform 0.55s cubic-bezier(0.22,1,0.36,1);
+    scrollbar-width:thin; scrollbar-color:var(--line) transparent;
+  }
+  .overlay.open{transform:none;}
+  .overlay-inner{
+    max-width:1240px; margin:0 auto;
+    padding:clamp(80px,12vh,120px) clamp(24px,6vw,96px) clamp(60px,10vh,100px);
+  }
+  .overlay-close{
+    position:fixed; top:clamp(20px,4vh,36px); right:clamp(20px,4vw,48px); z-index:90;
+    width:48px; height:48px; border:1px solid var(--line);
+    background:var(--ink); color:var(--ivory);
+    font-size:20px; cursor:pointer; display:none;
+    align-items:center; justify-content:center;
+    transition:all 0.15s ease; font-family:var(--font-m);
+  }
+  .overlay.open ~ .overlay-close, .overlay-close.visible{display:flex;}
+  .overlay-close:hover{background:var(--blue); border-color:var(--blue); color:var(--ink);}
+
+  /* overlay typography */
+  .ov-kicker{
+    font-family:var(--font-m); font-size:13px; color:var(--blue);
+    text-transform:uppercase; letter-spacing:0.1em; font-weight:700; margin-bottom:20px;
+  }
+  .ov-title{
+    font-weight:800; font-size:clamp(44px,7.5vw,96px);
+    line-height:0.96; letter-spacing:-0.025em; margin-bottom:28px;
+  }
+  .ov-title .dim{color:transparent; -webkit-text-stroke:1.5px var(--ivory-dim);}
+  @supports not (-webkit-text-stroke:1px black){ .ov-title .dim{color:var(--ivory-dim);} }
+  .ov-sub{
+    font-size:clamp(16px,1.9vw,20px); font-weight:300; color:var(--ivory-dim);
+    max-width:720px; line-height:1.7; margin-bottom:60px;
+    border-bottom:1px solid var(--line); padding-bottom:44px;
+  }
+  .ov-sub strong{color:var(--ivory); font-weight:600;}
+
+  /* architecture grid — hairline separator pattern */
+  .arch{
+    display:grid; grid-template-columns:repeat(2,1fr);
+    gap:1px; background:var(--line);
+    border:1px solid var(--line);
+    margin-bottom:56px;
+  }
+  @media (max-width:760px){ .arch{grid-template-columns:1fr;} }
+  .arch-node{
+    background:var(--ink); padding:28px 26px 26px;
+    transition:background 0.2s ease;
+  }
+  .arch-node:hover{background:var(--ink-2);}
+  .arch-node.wide{grid-column:1/-1;}
+  .arch-node .n-label{
+    font-family:var(--font-m); font-size:11px; font-weight:700;
+    color:var(--blue); text-transform:uppercase; letter-spacing:0.12em;
+    margin-bottom:14px;
+  }
+  .arch-node h3{font-size:clamp(17px,2vw,21px); font-weight:700; margin-bottom:10px; line-height:1.2;}
+  .arch-node p{font-size:15px; color:var(--ivory-dim); font-weight:300; line-height:1.65;}
+  .arch-node p strong{color:var(--ivory); font-weight:600;}
+
+  /* flow diagram — hairline grid */
+  .flow{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:1px; background:var(--line);
+    border:1px solid var(--line);
+    margin:0 0 48px;
+  }
+  @media (max-width:760px){ .flow{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:480px){ .flow{grid-template-columns:1fr;} }
+  .flow-step{background:var(--ink); padding:22px 20px;}
+  .flow-step .fs-num{
+    font-family:var(--font-m); font-size:11px; color:var(--blue);
+    font-weight:700; margin-bottom:8px;
+  }
+  .flow-step h4{font-size:15px; font-weight:700; margin-bottom:6px;}
+  .flow-step p{font-size:13px; color:var(--ivory-dim); font-weight:300; line-height:1.5;}
+
+  /* slide-level deep dive trigger */
+  .slide-link{
+    display:inline-flex; align-items:center; gap:10px; align-self:flex-start;
+    margin-top:clamp(22px,3.5vh,36px); padding:14px 20px;
+    font-family:var(--font-m); font-size:13px; font-weight:700;
+    letter-spacing:0.06em; text-transform:uppercase;
+    background:none; border:1px solid var(--line); color:var(--ivory-dim);
+    cursor:pointer; transition:all 0.15s ease;
+  }
+  .slide-link:hover{background:var(--blue); border-color:var(--blue); color:var(--ink);}
+
+  /* bucket viz (voice overlay) */
+  .buckets{display:flex; gap:1px; background:var(--line); border:1px solid var(--line); margin:0 0 44px;}
+  .bucket{flex:1; background:var(--ink); padding:18px 14px; text-align:center;}
+  .bucket .b-name{font-family:var(--font-m); font-size:12px; font-weight:700; color:var(--blue); margin-bottom:8px;}
+  .bucket .b-days{font-family:var(--font-m); font-size:11px; color:var(--ivory-dim); margin-bottom:10px;}
+  .bucket .b-who{font-size:13px; color:var(--ivory-dim); font-weight:300; line-height:1.4;}
+  .bucket.ai{background:var(--ink-2);}
+  .bucket.ai .b-name{color:var(--blue);}
+  .bucket.hard .b-name{color:var(--ivory);}
+  .bucket .b-badge{
+    display:inline-block; margin-top:10px;
+    font-family:var(--font-m); font-size:10px; font-weight:700;
+    padding:3px 8px; text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .bucket.ai .b-badge{background:var(--blue); color:var(--ink);}
+  .bucket.hard .b-badge{border:1px solid var(--line); color:var(--ivory-dim);}
+  @media (max-width:760px){.buckets{flex-wrap:wrap;} .bucket{min-width:calc(33% - 1px);}}
+
+  /* stats row */
+  .ov-stats{
+    display:flex; gap:0; flex-wrap:wrap;
+    border:1px solid var(--line); margin-bottom:56px;
+  }
+  .ov-stat{flex:1; min-width:140px; padding:24px 22px; border-right:1px solid var(--line);}
+  .ov-stat:last-child{border-right:none;}
+  .ov-stat b{display:block; font-family:var(--font-m); font-size:clamp(28px,3.5vw,40px); font-weight:700; color:var(--blue); letter-spacing:-0.02em;}
+  .ov-stat span{display:block; margin-top:6px; font-family:var(--font-m); font-size:12px; color:var(--ivory-dim);}
+
+  /* section label */
+  .ov-sec{
+    font-family:var(--font-m); font-size:12px; font-weight:700; color:var(--blue);
+    text-transform:uppercase; letter-spacing:0.1em; margin-bottom:20px;
+    padding-bottom:12px; border-bottom:1px solid var(--line);
+  }
+  .ov-challenge{
+    margin-bottom:56px;
+  }
+  .ch-list{list-style:none; max-width:860px;}
+  .ch-list li{
+    display:grid; grid-template-columns:140px 1fr; gap:20px;
+    padding:16px 0; border-bottom:1px solid var(--line);
+    font-size:clamp(14.5px,1.6vw,16px);
+  }
+  .ch-list li:first-child{border-top:1px solid var(--line);}
+  .ch-list li b{font-family:var(--font-m); font-size:12px; color:var(--blue); font-weight:700; text-transform:uppercase; letter-spacing:0.06em; align-self:start; padding-top:2px;}
+  .ch-list li p{color:var(--ivory-dim); font-weight:300; line-height:1.6;}
+  .ch-list li p strong{color:var(--ivory); font-weight:600;}
+  @media (max-width:640px){ .ch-list li{grid-template-columns:1fr; gap:6px;} }
+
+  /* stub overlay */
+  .stub-center{
+    height:60vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; gap:16px;
+  }
+  .stub-center .s-n{font-family:var(--font-m); font-size:clamp(64px,12vw,120px); font-weight:700; color:var(--line); letter-spacing:-0.04em;}
+  .stub-center p{font-family:var(--font-m); font-size:14px; color:var(--ivory-dim);}
+
+  /* ---------- METRIC SLIDES (one hero number) ---------- */
+  .mega{
+    font-family:var(--font-m); font-weight:700;
+    font-size:clamp(88px,20vw,280px);
+    line-height:0.9; letter-spacing:-0.05em;
+    color:var(--blue);
+  }
+  .mega-label{
+    font-size:clamp(23px,3.4vw,40px); font-weight:600;
+    margin-top:26px; max-width:760px; line-height:1.25;
+  }
+  .mega-sub{
+    font-size:clamp(16px,1.9vw,19.5px); font-weight:300; color:var(--ivory-dim);
+    margin-top:16px; max-width:600px; line-height:1.65;
+  }
+
+  .duo{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,6vw,90px); align-items:end;}
+  @media (max-width:760px){ .duo{grid-template-columns:1fr; align-items:start;} }
+  .duo .half .mega{font-size:clamp(64px,11vw,150px);}
+
+  .shift{font-family:var(--font-m); letter-spacing:-0.03em; line-height:1;}
+  .shift .was{
+    font-size:clamp(28px,4.5vw,56px); color:var(--ivory-dim);
+    text-decoration:line-through; font-weight:400; display:block; margin-bottom:12px;
+  }
+  .shift .now{
+    font-size:clamp(72px,14vw,190px); color:var(--blue); font-weight:700; display:block;
+  }
+
+  /* ---------- STORY SLIDES ---------- */
+  .facts{
+    margin-top:44px; border-top:1px solid var(--line); max-width:820px;
+  }
+  .facts .f{
+    display:grid; grid-template-columns:minmax(90px,140px) 1fr; gap:24px;
+    padding:18px 0; border-bottom:1px solid var(--line);
+    font-size:clamp(15.5px,1.75vw,18px);
+  }
+  .facts .f b{font-family:var(--font-m); color:var(--blue); font-weight:700; font-size:0.95em;}
+  .facts .f p{color:var(--ivory-dim); font-weight:300;}
+  .facts .f p strong{color:var(--ivory); font-weight:600;}
+
+  /* ---------- TIMELINE ---------- */
+  .tl{margin-top:34px; border-top:1px solid var(--line); max-width:900px;}
+  .tl .t{
+    display:grid; grid-template-columns:150px 1fr auto; gap:20px; align-items:baseline;
+    padding:clamp(14px,2.4vh,22px) 0; border-bottom:1px solid var(--line);
+  }
+  .tl .t .yrs{font-family:var(--font-m); font-size:14px; color:var(--blue); font-weight:700;}
+  .tl .t .co{font-size:clamp(20px,3vw,32px); font-weight:700; letter-spacing:-0.01em;}
+  .tl .t .what{font-size:14.5px; color:var(--ivory-dim); font-family:var(--font-m); text-align:right;}
+  @media (max-width:700px){
+    .tl .t{grid-template-columns:1fr; gap:4px;}
+    .tl .t .what{text-align:left;}
+  }
+
+  /* ---------- STACK ---------- */
+  .stack-rows{margin-top:34px; border-top:1px solid var(--line); max-width:1000px;}
+  .srow{
+    display:grid; grid-template-columns:minmax(120px,200px) 1fr; gap:24px;
+    padding:clamp(16px,2.6vh,26px) 0; border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  @media (max-width:700px){ .srow{grid-template-columns:1fr; gap:10px;} }
+  .srow h3{
+    font-family:var(--font-m); font-size:12.5px; font-weight:700;
+    color:var(--blue); text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .tags{display:flex; flex-wrap:wrap; gap:8px 8px;}
+  .tag{
+    font-family:var(--font-m); font-size:14.5px; font-weight:400;
+    padding:10px 15px; border:1px solid var(--line); color:var(--ivory-dim);
+    transition:all 0.15s ease; cursor:default;
+  }
+  .tag:hover{color:var(--ink); background:var(--blue); border-color:var(--blue);}
+
+  /* ---------- CONTACT ---------- */
+  .s-contact .contact-list{margin-top:44px; border-top:1px solid var(--line); max-width:860px;}
+  .s-contact .contact-list a{
+    display:flex; justify-content:space-between; align-items:center; gap:18px;
+    padding:clamp(18px,3vh,28px) 0; border-bottom:1px solid var(--line);
+    text-decoration:none;
+    font-family:var(--font-m); font-size:clamp(15px,2.6vw,26px);
+  }
+  .s-contact .contact-list a .k{
+    font-size:12px; color:var(--blue); font-weight:700;
+    text-transform:uppercase; letter-spacing:0.1em; flex-shrink:0;
+  }
+  .s-contact .contact-list a .v{overflow-wrap:anywhere; text-align:right; color:var(--ivory);}
+  .s-contact .contact-list a:hover .v{color:var(--blue);}
+  .s-contact .edu{
+    margin-top:36px; font-family:var(--font-m); font-size:12.5px;
+    color:var(--ivory-dim); line-height:1.9;
+  }
+  .s-contact .edu b{color:var(--ivory);}
+
+  /* ---------- MOTION SAFETY ---------- */
+  @media (prefers-reduced-motion: reduce){
+    .deck{scroll-behavior:auto;}
+    *, *::before, *::after{animation:none !important; transition:none !important;}
+    .armed .slide:not(.on) .anim{opacity:1; transform:none;}
+  }
+
+  /* ---------- PRINT : linearize the deck ---------- */
+  @media print{
+    body{overflow:visible; background:#fff; color:#000;}
+    .deck{height:auto; overflow:visible; scroll-snap-type:none;}
+    .slide{min-height:0; padding:28px 0; max-width:100%; page-break-inside:avoid;}
+    .hud, .hint, .progress, .skip-link, .alt-view, .overlay, .overlay-close{display:none !important;}
+    .anim{opacity:1 !important; transform:none !important;}
+    .display .outline{-webkit-text-stroke:0; color:#000;}
+    .mega, .shift .now, .wall .cell b, .kicker, .slide .sig b, .facts .f b,
+    .tl .t .yrs, .srow h3, .s-contact .contact-list a .k{color:#333 !important;}
+    .lede, .mega-sub, .facts .f p, .wall .cell span, .tl .t .what, .tag{color:#444 !important;}
+    .display, .mega-label, .tl .t .co, .s-contact .contact-list a .v{color:#000 !important;}
+    .wall .cell, .facts .f, .tl .t, .srow, .s-contact .contact-list a, .tag{border-color:#ccc !important;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#contact">Skip to contact</a>
+<a class="alt-view" href="detailed.html">detailed profile →</a>
+<div class="progress" aria-hidden="true"></div>
+
+<main class="deck" id="deck">
+
+  <!-- 01 · TITLE -->
+  <section class="slide s-title on" aria-label="Title">
+    <p class="sig"><b>MG</b> — profile</p>
+    <p class="kicker anim">Head of Engineering · Zolve · Bengaluru</p>
+    <h1 class="display anim d1">
+      Mridul<br>
+      <span class="outline">Gupta</span>
+    </h1>
+    <p class="lede anim d2">Engineering leadership across <strong>fintech</strong>, <strong>distributed systems</strong> and <strong>AI</strong> — thirteen years from junior engineer to running the whole org.</p>
+    <div class="contact-row anim d3">
+      <a href="mailto:mridulgupta56@gmail.com">mridulgupta56@gmail.com</a>
+      <a href="tel:+918588851003">+91 85888 51003</a>
+      <a href="https://www.linkedin.com/in/mridul-gupta-0bb6a222" target="_blank" rel="noopener">linkedin ↗</a>
+      <a href="detailed.html">detailed profile →</a>
+    </div>
+  </section>
+
+  <!-- 02 · ZOLVE -->
+  <section class="slide" aria-label="Zolve, Head of Engineering, 2022 to now">
+    <p class="sig"><b>Zolve</b> — head of engineering · 2022 to now</p>
+    <p class="kicker anim">2022 — now · fintech · Bengaluru</p>
+    <h2 class="display anim d1" style="font-size:clamp(40px,7vw,96px);">Zolve<span class="blue">.</span></h2>
+    <p class="lede anim d2">Head of Engineering — the whole org: backend, frontend, mobile, data and AI, working directly with the founder on strategy.</p>
+    <div class="facts anim d3">
+      <div class="f"><b>PLATFORM</b><p>Multi-bank, multi-geography architecture across the <strong>US, Canada and the UK</strong> — data residency designed so new geographies land without rework.</p></div>
+      <div class="f"><b>REALTIME</b><p>Rule &amp; signal-processing platform on <strong>Apache Flink</strong> for fraud, compliance and credit — already a <strong>+20%</strong> lift in anomaly detection.</p></div>
+      <div class="f"><b>DATA/ML</b><p>Feature store powering churn (<strong>78% recall, 0.83 F1, ~89% precision</strong>) and LTV models; leading the warehouse migration to <strong>Databricks</strong>.</p></div>
+      <div class="f"><b>AI</b><p>From zero: RAG, NL-to-SQL on a semantic data layer, an agent platform on <strong>LangGraph/LangSmith</strong>, fraud dashboards wired to <strong>Anthropic models</strong>.</p></div>
+    </div>
+  </section>
+
+  <!-- 03 · AGENT PLATFORM -->
+  <section class="slide" aria-label="Agent platform: 25 percent of disputes and 90 percent of compliance handled by AI">
+    <p class="sig"><b>Cerebrum</b> — AI agent platform · disputes &amp; compliance</p>
+    <p class="kicker anim">Cerebrum · 100+ agents in production</p>
+    <div class="duo">
+      <div class="half anim d1">
+        <p class="mega"><span data-count="25">25</span>%</p>
+        <p class="mega-label">disputes resolved end-to-end.</p>
+        <p class="mega-sub">No human in loop — understand, investigate, reach customer, close.</p>
+      </div>
+      <div class="half anim d2">
+        <p class="mega"><span data-count="90">90</span>%</p>
+        <p class="mega-label">compliance reporting &amp; QC.</p>
+        <p class="mega-sub">Humans review exceptions only. Built on LangGraph, LangSmith, Java.</p>
+      </div>
+    </div>
+    <button class="slide-link anim d3" data-overlay="ov-agents" aria-haspopup="dialog">how Cerebrum works ↗</button>
+  </section>
+
+  <!-- 04 · AI VOICE -->
+  <section class="slide" aria-label="AI voice collections outperforms humans by 72 percent">
+    <p class="sig"><b>AI collections</b> — Retell AI × ElevenLabs · voice agents</p>
+    <p class="kicker anim">Collections · Retell AI × ElevenLabs</p>
+    <p class="mega anim d1"><span data-count="72">+72</span>%</p>
+    <p class="mega-label anim d2">over human collectors — B1, B2, B3 fully automated.</p>
+    <p class="mega-sub anim d3">80–90% of collector bandwidth freed for the hard buckets (B4–B6). ElevenLabs voices on Retell AI, calling based on feature-store signals — who to call, when to call, how to optimize collection.</p>
+    <button class="slide-link anim d4" data-overlay="ov-voice" aria-haspopup="dialog">engineering deep dive ↗</button>
+  </section>
+
+  <!-- 05 · PAYMENTS -->
+  <section class="slide" aria-label="Payment routing: 90 percent real-time settlement">
+    <p class="sig"><b>Payments</b> — US ACH routing · real-time settlement</p>
+    <p class="kicker anim">Payment routing · US ACH → intraday rails</p>
+    <p class="mega anim d1"><span data-count="90">90</span>%</p>
+    <p class="mega-label anim d2">of transactions now settle in real time.</p>
+    <p class="mega-sub anim d3">ACH in the US has no native real-time settlement — daily or 3-day windows. Built a routing engine that reads user and bank-account signals to decide which transactions can move to intraday rails. Six months ago this number was 10%.</p>
+    <button class="slide-link anim d4" data-overlay="ov-payments" aria-haspopup="dialog">engineering deep dive ↗</button>
+  </section>
+
+  <!-- 06 · LATENCY -->
+  <section class="slide" aria-label="App launch latency cut from 500 milliseconds to under 120 milliseconds">
+    <p class="sig"><b>Latency</b> — CQRS · CDP · client-side rendering</p>
+    <p class="kicker anim">CQRS · CDP · client-side rendering</p>
+    <div class="shift anim d1" role="img" aria-label="From 500 milliseconds down to under 120 milliseconds">
+      <span class="was">500ms</span>
+      <span class="now">&lt;120ms</span>
+    </div>
+    <p class="mega-sub anim d2">App launch for migrants arriving in the US, UK, Canada from anywhere — data residency per country, cross-border network hops, and Zolve app sessions under 2 minutes. Solved with CQRS reads, TTL-synced data at the user level, and template rendering moved to the client.</p>
+    <button class="slide-link anim d3" data-overlay="ov-latency" aria-haspopup="dialog">engineering deep dive ↗</button>
+  </section>
+
+  <!-- 07 · VELOCITY -->
+  <section class="slide" aria-label="React Native migration: releases 50 percent faster with a 70 percent smaller team">
+    <p class="sig"><b>React Native</b> — iOS + Android → one codebase · velocity</p>
+    <p class="kicker anim">Native iOS + Android → React Native</p>
+    <div class="duo">
+      <div class="half anim d1">
+        <p class="mega">−50%</p>
+        <p class="mega-label">release cycle. −60% time-to-ship.</p>
+        <p class="mega-sub">Zolve is a banking app, not a classroom. No GPU rendering, no CPU-intensive streams — React Native handles it fine, and fungibility means one engineer owns across the full platform.</p>
+      </div>
+      <div class="half anim d2">
+        <p class="mega">8→2–3</p>
+        <p class="mega-label">engineers per release.</p>
+        <p class="mega-sub">No-code release platform lets PMs compose new screens from the widget library and ship without engineering — powered by the same skeleton templates the CQRS layer delivers on launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · NOON — SCALE -->
+  <section class="slide" aria-label="Noon Academy, 2018 to 2022, 16 million students">
+    <p class="sig"><b>Noon Academy</b> — edtech · 2018 to 2022 · scale</p>
+    <p class="kicker anim">2018 — 2022 · edtech · Classroom &amp; Platform</p>
+    <p class="mega anim d1"><span data-count="16">16</span>M+</p>
+    <p class="mega-label anim d2">students reached. 10M+ active users at peak.</p>
+    <div class="facts anim d3">
+      <div class="f"><b>EVENTS</b><p>Hundreds of millions of events processed per day — live voice, sketch strokes, chat, emoji, sync packets — across 4 regions with varying network conditions.</p></div>
+      <div class="f"><b>ORG</b><p>Built and led a <strong>20+ engineer org</strong> across mobile, backend, realtime infrastructure and platform — from scratch, with very low attrition over 3+ years.</p></div>
+    </div>
+  </section>
+
+  <!-- 09 · NOON — ENGINEERING -->
+  <section class="slide" aria-label="Noon classroom engineering: CPU GPU rearchitecture">
+    <p class="sig"><b>Noon Academy</b> — CPU / GPU rearchitecture · engineering</p>
+    <p class="kicker anim">CPU / GPU rearchitecture · sync at scale</p>
+    <div class="duo">
+      <div class="half anim d1">
+        <p class="mega">90→20%</p>
+        <p class="mega-label">CPU load during a live class.</p>
+        <p class="mega-sub">All sketch rendering moved to GPU. Voice, chat, and network sync stayed on CPU. Each processor doing what it's designed for — the CPU was no longer fighting the GPU for the same device.</p>
+      </div>
+      <div class="half anim d2">
+        <p class="mega">−40%</p>
+        <p class="mega-label">battery drain per session.</p>
+        <p class="mega-sub">2-hour classes ran cool and without heat throttling post-rearchitecture. Reconnection after a network drop synced state in under 2 seconds — no session lost.</p>
+      </div>
+    </div>
+    <button class="slide-link anim d3" data-overlay="ov-noon" aria-haspopup="dialog">full engineering deep dive ↗</button>
+  </section>
+
+  <!-- 11 · TRAJECTORY -->
+  <section class="slide" aria-label="Career timeline 2013 to now">
+    <p class="sig"><b>Career</b> — 13 years · five companies · trajectory</p>
+    <h2 class="display anim" style="font-size:clamp(40px,6.5vw,84px);">Thirteen years<span class="blue">,</span><br><span class="thin">five chapters.</span></h2>
+    <div class="tl anim d1">
+      <div class="t"><span class="yrs">2022 — NOW</span><span class="co">Zolve</span><span class="what">head of engineering</span></div>
+      <div class="t"><span class="yrs">2018 — 2022</span><span class="co">Noon Academy</span><span class="what">engineering leader</span></div>
+      <div class="t"><span class="yrs">2017 — 2018</span><span class="co">Tata 1mg</span><span class="what">sr. ios developer</span></div>
+      <div class="t"><span class="yrs">2016 — 2017</span><span class="co">Yudek</span><span class="what">founding engineer</span></div>
+      <div class="t"><span class="yrs">2013 — 2016</span><span class="co">SapientNitro</span><span class="what">java → mobile · mcdonald's, avon</span></div>
+    </div>
+    <p class="mega-sub anim d2" style="margin-top:28px;">B.Tech, Information Technology — Motilal Nehru National Institute of Technology, 2009–2013.</p>
+  </section>
+
+  <!-- 10 · STACK -->
+  <section class="slide" aria-label="Technology stack">
+    <p class="sig"><b>Stack</b> — engineering · data · AI tooling</p>
+    <h2 class="display anim" style="font-size:clamp(40px,6.5vw,84px);">The stack<span class="blue">.</span></h2>
+    <div class="stack-rows anim d1">
+      <div class="srow">
+        <h3>Engineering</h3>
+        <div class="tags">
+          <span class="tag">Java</span><span class="tag">Swift</span><span class="tag">Kotlin</span>
+          <span class="tag">iOS</span><span class="tag">Android</span><span class="tag">React Native</span>
+          <span class="tag">RxSwift</span><span class="tag">RxJava</span>
+          <span class="tag">SQL</span><span class="tag">Columnar DB</span>
+        </div>
+      </div>
+      <div class="srow">
+        <h3>Data &amp; Realtime</h3>
+        <div class="tags">
+          <span class="tag">Apache Flink</span><span class="tag">Apache Druid</span><span class="tag">Cassandra</span>
+          <span class="tag">Databricks</span><span class="tag">Metabase</span>
+          <span class="tag">WebRTC</span><span class="tag">Agora</span>
+        </div>
+      </div>
+      <div class="srow">
+        <h3>AI</h3>
+        <div class="tags">
+          <span class="tag">LangGraph</span><span class="tag">LangSmith</span><span class="tag">CrewAI</span>
+          <span class="tag">Retell AI</span><span class="tag">ElevenLabs</span>
+          <span class="tag">Claude Code</span><span class="tag">Codex</span>
+          <span class="tag">OpenRouter</span><span class="tag">OpenCode</span>
+          <span class="tag">Ollama</span><span class="tag">Groq</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · CONTACT -->
+  <section class="slide s-contact" id="contact" aria-label="Contact">
+    <p class="sig"><b>Contact</b> — Mridul Gupta · Bengaluru</p>
+    <h2 class="display anim">Let's <span class="outline">talk</span><span class="blue">.</span></h2>
+    <div class="contact-list anim d1">
+      <a href="mailto:mridulgupta56@gmail.com"><span class="k">email</span><span class="v">mridulgupta56@gmail.com</span></a>
+      <a href="tel:+918588851003"><span class="k">phone</span><span class="v">+91 85888 51003</span></a>
+      <a href="https://www.linkedin.com/in/mridul-gupta-0bb6a222" target="_blank" rel="noopener"><span class="k">linkedin</span><span class="v">/in/mridul-gupta-0bb6a222 ↗</span></a>
+    </div>
+    <p class="edu anim d2"><b>Mridul Gupta</b> · Bengaluru, India · English — full professional</p>
+  </section>
+
+</main>
+
+<p class="hint" aria-hidden="true">scroll / ↑ ↓ keys</p>
+<div class="hud">
+  <span class="count" aria-live="polite"><b id="cur">01</b> / <span id="total">11</span></span>
+  <span class="keys">
+    <button type="button" id="prev" aria-label="Previous slide">↑</button>
+    <button type="button" id="next" aria-label="Next slide">↓</button>
+  </span>
+</div>
+
+<!-- ======= OVERLAYS ======= -->
+
+<!-- AGENTS / CEREBRUM -->
+<div class="overlay" id="ov-agents" role="dialog" aria-modal="true" aria-label="Cerebrum — Agent Platform deep dive" tabindex="-1" hidden>
+  <div class="overlay-inner">
+    <p class="ov-kicker">Engineering deep dive · AI &amp; Agent Platform · Zolve</p>
+    <h2 class="ov-title">Cerebrum<span class="dim">.</span></h2>
+    <p class="ov-sub">An internal no-code agentic platform built at Zolve on top of <strong>LangGraph</strong>, with full session logging, drag-and-drop agent orchestration, agent-to-agent handoff, native connectors, RBAC, and per-agent cost guardrails — all running on <strong>Java</strong> in production with <strong>100+ agents</strong>.</p>
+
+    <div class="ov-stats">
+      <div class="ov-stat"><b>100+</b><span>agents in production</span></div>
+      <div class="ov-stat"><b>25%</b><span>disputes resolved autonomously</span></div>
+      <div class="ov-stat"><b>90%</b><span>compliance QC on agents</span></div>
+      <div class="ov-stat"><b>0</b><span>humans in the loop (dispute resolution)</span></div>
+    </div>
+
+    <p class="ov-sec">How an agent runs — the session log</p>
+    <div class="flow">
+      <div class="flow-step">
+        <p class="fs-num">01</p>
+        <h4>Session Init</h4>
+        <p>Every agent execution opens a session — unique ID, timestamp, triggering context, and the agent definition loaded from the registry.</p>
+      </div>
+      <div class="flow-step">
+        <p class="fs-num">02</p>
+        <h4>Agent Identity</h4>
+        <p>Which agent is running, its version, its assigned connectors, its domain scope, and its cost ceiling in dollars.</p>
+      </div>
+      <div class="flow-step">
+        <p class="fs-num">03</p>
+        <h4>Context Window</h4>
+        <p>The live context — memory retrieved, connector data injected, conversation history threaded in — visible per turn in LangSmith.</p>
+      </div>
+      <div class="flow-step">
+        <p class="fs-num">04</p>
+        <h4>Conversation Log</h4>
+        <p>Every message, tool call, and model response is persisted. Full replay, cost breakdown by turn, and anomaly flagging on deviation.</p>
+      </div>
+    </div>
+
+    <p class="ov-sec">Platform architecture</p>
+    <div class="arch">
+      <div class="arch-node">
+        <p class="n-label">Core Platform · Java</p>
+        <h3>Cerebrum Runtime</h3>
+        <p>Built in <strong>Java</strong> — the platform layer that owns session lifecycle, agent registry, connector management, RBAC enforcement, and the cost ledger. LangGraph is the graph execution engine underneath; Java is the control plane wrapping it.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Orchestration · LangGraph</p>
+        <h3>Agent-to-Agent Handoff</h3>
+        <p>Agents are nodes in a LangGraph. The output of one agent becomes the input of the next via a <strong>typed pipeline connector</strong> — drag one agent's output port to another's input in the UI, and Cerebrum wires the data contract and the execution order. Multi-step workflows compose from single-purpose agents without writing orchestration code.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Builder UI · No-code</p>
+        <h3>Drag-and-Drop Composer</h3>
+        <p>Business users and non-engineers build workflows visually. Agents appear as cards on a canvas — drag to connect, configure the data mapping on the connector, and publish. The connector is the pipeline: one agent's structured output becomes the next agent's structured input, with schema validation at the boundary.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Observability · LangSmith</p>
+        <h3>Full Trace + Cost Visibility</h3>
+        <p>Every session is traced in <strong>LangSmith</strong> — token usage, latency per step, model calls, tool invocations, and total cost. The cost is surfaced back into Cerebrum's ledger, where guardrails can pause or terminate an agent that hits its dollar ceiling mid-run.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Connectors · Native</p>
+        <h3>Data Sources &amp; Integrations</h3>
+        <p>Native connectors for <strong>Google Sheets</strong>, internal databases, CRMs, and APIs — configured once per agent, scoped by RBAC. An agent only sees the connectors it's been granted. Connector output is typed and versioned so pipeline handoffs are stable across agent updates.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Access Control · RBAC</p>
+        <h3>Guardrails &amp; Governance</h3>
+        <p>Two control surfaces: <strong>cost guardrails</strong> set a dollar ceiling per agent per run — the platform auto-stops over-budget agents; <strong>data RBAC</strong> controls which connectors, schemas, and data domains each agent (and the team member building it) can access. Domain expertise of the builder gates which agent types they can create.</p>
+      </div>
+    </div>
+
+    <p class="ov-sec">Engineering challenges</p>
+    <div class="ov-challenge">
+      <ul class="ch-list">
+        <li><b>State across handoffs</b><p>Each agent-to-agent connector had to carry <strong>typed, versioned context</strong> without leaking internal state — a shared schema registry and serialization contract between agents solved both correctness and debuggability.</p></li>
+        <li><b>Cost control at runtime</b><p>Token usage is non-deterministic. A hard dollar ceiling means tracking cumulative spend <strong>per turn, in real time</strong>, and interrupting gracefully when the limit is hit — not failing noisily or silently continuing.</p></li>
+        <li><b>Session memory at scale</b><p>100+ concurrent agents each maintaining their own session context required a memory architecture that was cheap to write, fast to retrieve per session ID, and auditable — <strong>conversation-scoped vector memory</strong> plus a relational session log satisfied all three.</p></li>
+        <li><b>No-code ↔ reliable execution</b><p>Giving non-engineers a drag-and-drop composer while keeping production-grade execution meant the UI was a <strong>pure configuration surface</strong> — it writes a declarative graph definition that the Java runtime compiles and validates before any agent runs.</p></li>
+        <li><b>RBAC without brittleness</b><p>Data access rules needed to survive agent updates, connector changes, and team membership changes without manual re-review — modelled as capability grants on the agent definition, not on the individual run, so access is always re-evaluated at session init.</p></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- VOICE / RETELL+ELEVENLABS -->
+<div class="overlay" id="ov-voice" role="dialog" aria-modal="true" aria-label="AI Voice Collections deep dive" tabindex="-1" hidden>
+  <div class="overlay-inner">
+    <p class="ov-kicker">Engineering deep dive · AI Voice Collections · Zolve</p>
+    <h2 class="ov-title">Retell AI<br><span class="dim">× ElevenLabs.</span></h2>
+    <p class="ov-sub">When customers don't pay, they move through delinquency buckets B1 → B6. Post B6 is charge-off. The problem: human collectors were spread thin across all six buckets, leaving them under-resourced for the hardest ones. The fix: <strong>automate B1, B2, B3 with an agentic voice solution</strong> and give collectors 80–90% of their time back for B4, B5, B6 where judgment matters.</p>
+
+    <p class="ov-sec">The delinquency bucket model</p>
+    <div class="buckets">
+      <div class="bucket ai">
+        <p class="b-name">B1</p>
+        <p class="b-days">1–30 days</p>
+        <p class="b-who">First missed payment. High volume, straightforward reminders.</p>
+        <span class="b-badge">AI automated</span>
+      </div>
+      <div class="bucket ai">
+        <p class="b-name">B2</p>
+        <p class="b-days">31–60 days</p>
+        <p class="b-who">Reminder + push to pay. Still predictable conversation patterns.</p>
+        <span class="b-badge">AI automated</span>
+      </div>
+      <div class="bucket ai">
+        <p class="b-name">B3</p>
+        <p class="b-days">61–90 days</p>
+        <p class="b-who">More persistent outreach. AI outperforms humans here by +72%.</p>
+        <span class="b-badge">AI automated</span>
+      </div>
+      <div class="bucket hard">
+        <p class="b-name">B4</p>
+        <p class="b-days">91–120 days</p>
+        <p class="b-who">Negotiation begins. Human judgment needed.</p>
+        <span class="b-badge">human focus</span>
+      </div>
+      <div class="bucket hard">
+        <p class="b-name">B5</p>
+        <p class="b-days">121–150 days</p>
+        <p class="b-who">Settlement discussions, hardship cases.</p>
+        <span class="b-badge">human focus</span>
+      </div>
+      <div class="bucket hard">
+        <p class="b-name">B6</p>
+        <p class="b-days">151–180 days</p>
+        <p class="b-who">Pre-charge-off. Highest stakes, needs senior collectors.</p>
+        <span class="b-badge">human focus</span>
+      </div>
+    </div>
+
+    <div class="ov-stats">
+      <div class="ov-stat"><b>+72%</b><span>over human collectors in B1–B3</span></div>
+      <div class="ov-stat"><b>80–90%</b><span>bandwidth returned to human collectors</span></div>
+      <div class="ov-stat"><b>B1–B3</b><span>fully automated, no human in the loop</span></div>
+    </div>
+
+    <p class="ov-sec">How it was built</p>
+    <div class="arch">
+      <div class="arch-node">
+        <p class="n-label">Signal Layer · Feature Store</p>
+        <h3>Who to call and when</h3>
+        <p>The feature store — already powering churn and LTV models — was extended for collections. Signals at the user level (payment history, behavior patterns, past engagement) determine <strong>which customers to call, in which order, and at what time of day</strong> for the best connection and conversion rate. The model optimizes for collection, not just contact.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Voice Layer · ElevenLabs × Retell AI</p>
+        <h3>The agentic calling framework</h3>
+        <p><strong>ElevenLabs</strong> provides the voice — realistic, human-sounding audio with configurable tone and pacing. <strong>Retell AI</strong> is the agentic calling platform that orchestrates the conversation: dials out, runs the dialogue, handles branching (payment committed / needs follow-up / dispute raised), and logs every call with transcript and outcome. No custom voice model — this is an agentic solution built on top of best-in-class voice infrastructure.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Outcome Loop</p>
+        <h3>Optimize on collection</h3>
+        <p>Every call outcome — payment made, promise to pay, no answer, dispute — feeds back into the feature store. The system learns which call scripts, timing slots, and contact cadences convert best per customer segment, and the routing model updates accordingly. <strong>Collection rate improves over time without changing the infrastructure.</strong></p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Impact</p>
+        <h3>Collector bandwidth reclaimed</h3>
+        <p>Before: collectors spent the majority of their time on B1–B3 — high volume, low complexity, low yield for skilled collectors. After: <strong>80–90% of that bandwidth is returned to the human team</strong>, who now focus exclusively on B4, B5, and B6 where relationship skills, negotiation, and judgment drive real outcomes. The AI did not replace collectors — it made them dramatically more effective.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENTS -->
+<div class="overlay" id="ov-payments" role="dialog" aria-modal="true" aria-label="Payment Routing deep dive" tabindex="-1" hidden>
+  <div class="overlay-inner">
+    <p class="ov-kicker">Engineering deep dive · Fintech · Payment Routing · Zolve</p>
+    <h2 class="ov-title">Settlement<br><span class="dim">Engine.</span></h2>
+    <p class="ov-sub">The US has no native real-time payment settlement. The dominant rail — <strong>ACH</strong> — settles on a daily or 3-day window. For a fintech serving migrants who need their money moving now, this was a meaningful UX and trust gap. <strong>Six months ago, real-time settlement at Zolve was 10%. Today it's 90%.</strong></p>
+
+    <div class="ov-stats">
+      <div class="ov-stat"><b>10%→90%</b><span>real-time settlement · 6 months</span></div>
+      <div class="ov-stat"><b>3 days</b><span>→ instant for routed transactions</span></div>
+      <div class="ov-stat"><b>ACH</b><span>US primary rail — no native RTP</span></div>
+    </div>
+
+    <p class="ov-sec">The problem with US payments</p>
+    <div class="arch">
+      <div class="arch-node wide">
+        <p class="n-label">Context</p>
+        <h3>Why real-time settlement doesn't exist by default in the US</h3>
+        <p>ACH (Automated Clearing House) is the backbone of US payments. Standard ACH settles in 1–3 business days. Same-day ACH exists but has limits and fees. The RTP (Real-Time Payments) network and FedNow are newer rails that support instant settlement — but not every bank or transaction type is eligible. <strong>The opportunity: identify which transactions can move to intraday or instant rails, and route them there automatically.</strong></p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Signal Layer · User</p>
+        <h3>User-level signals</h3>
+        <p>Payment history, account age, behavioral risk score, past settlement patterns — signals that indicate whether a given user's transaction is a good candidate for instant routing without elevated risk of return or failure.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Signal Layer · Bank</p>
+        <h3>Bank-account signals</h3>
+        <p>Counterparty bank capabilities — does the receiving institution support RTP or same-day ACH? What is the historical return rate for this bank? Real-time routing decisions require knowing what the destination can accept, not just what the sender wants.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Routing Engine</p>
+        <h3>The decision layer</h3>
+        <p>Given both signal sets, the routing engine decides per transaction: standard ACH / same-day ACH / intraday rail. The decision balances <strong>settlement speed for the customer</strong> against <strong>cost and return risk</strong>. Not every transaction should be on an expensive rail — the engine finds the optimal path for each one.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LATENCY / CQRS -->
+<div class="overlay" id="ov-latency" role="dialog" aria-modal="true" aria-label="Latency CQRS deep dive" tabindex="-1" hidden>
+  <div class="overlay-inner">
+    <p class="ov-kicker">Engineering deep dive · Fintech · Latency · Zolve</p>
+    <h2 class="ov-title">500ms<br><span class="dim">→ &lt;120ms.</span></h2>
+    <p class="ov-sub">Zolve's users are migrants — arriving in the US, UK, or Canada from India, Zimbabwe, Nepal, Bangladesh, or anywhere else. Data residency rules mean their data must stay in the right jurisdiction. Network hops between jurisdictions add latency. And the Zolve app session length is <strong>under 2 minutes</strong> — every millisecond of load time is a visible fraction of the total experience.</p>
+
+    <div class="ov-stats">
+      <div class="ov-stat"><b>500ms</b><span>end-to-end round trip before</span></div>
+      <div class="ov-stat"><b>&lt;120ms</b><span>app launch after CQRS + CDP</span></div>
+      <div class="ov-stat"><b>&lt;2 min</b><span>Zolve app session length</span></div>
+      <div class="ov-stat"><b>3</b><span>data-residency jurisdictions</span></div>
+    </div>
+
+    <p class="ov-sec">The old architecture and why it was slow</p>
+    <div class="flow">
+      <div class="flow-step">
+        <p class="fs-num">before 01</p>
+        <h4>Client request</h4>
+        <p>App opens, requests a screen — backend fetches all user data from the database for that context.</p>
+      </div>
+      <div class="flow-step">
+        <p class="fs-num">before 02</p>
+        <h4>Template service</h4>
+        <p>Backend wraps the data in a template — the server builds the full rendered payload for the client.</p>
+      </div>
+      <div class="flow-step">
+        <p class="fs-num">before 03</p>
+        <h4>Large payload</h4>
+        <p>A templated, pre-rendered bundle travels over the network. Payload was large — cross-border hops added 300–500ms on their own.</p>
+      </div>
+      <div class="flow-step">
+        <p class="fs-num">before 04</p>
+        <h4>500–700ms total</h4>
+        <p>Backend sub-200ms. But end-to-end: 500ms to 700ms. The network and the payload size killed the experience.</p>
+      </div>
+    </div>
+
+    <p class="ov-sec">The CQRS + CDP architecture</p>
+    <div class="arch">
+      <div class="arch-node">
+        <p class="n-label">Reads · CDP (Content Data Platform)</p>
+        <h3>Separate read layer with TTL</h3>
+        <p>A CQRS read layer — CDP — syncs user-level data points whenever a write happens on the backend. Each data point carries its own <strong>TTL</strong>. While TTL is alive, the client reads from CDP (fast, edge-cached). When TTL expires, CDP fetches fresh from the source database and re-syncs. The client never hits the core database directly.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Client · Template Service + Skeleton</p>
+        <h3>Rendering moved to the device</h3>
+        <p>On launch, the app checks when templates were last updated and downloads only what has changed — <strong>skeleton screens</strong> with no data, just layout. These are cached on device. The CDP then sends <strong>raw data</strong>, not templated bundles. The client merges data into the skeleton locally. Today's phones — 8–16GB RAM, high-compute — do this in milliseconds.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Result</p>
+        <h3>What changed</h3>
+        <p>Two things eliminated: the backend templating step (removed from the critical path), and the large pre-rendered payload (replaced with raw data, dramatically smaller). Backend services were always under 200ms — the problem was <strong>what was being sent over the network and how much of it</strong>. Breaking that with CQRS and client-side rendering cut launch time by 76%.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Residency + Fungibility</p>
+        <h3>Works across jurisdictions</h3>
+        <p>Each CDP instance is deployed per data-residency zone (US, CA, UK). The client connects to the right zone automatically — <strong>no cross-border data movement for reads</strong>. The same skeleton + raw data architecture works identically in each jurisdiction, so features ship once and work everywhere.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOON -->
+<div class="overlay" id="ov-noon" role="dialog" aria-modal="true" aria-label="Noon Classroom deep dive" tabindex="-1" hidden>
+  <div class="overlay-inner">
+    <p class="ov-kicker">Engineering deep dive · EdTech · Noon Academy · 2018–2022</p>
+    <h2 class="ov-title">16M+<br><span class="dim">Live Students.</span></h2>
+    <p class="ov-sub">A live classroom on a phone is one of the most hardware-demanding things you can run. Voice streaming. Live sketch drawing. Chat. Emojis flying. All simultaneously, on a mobile CPU, across varying networks, for sessions up to 2 hours. At 10M+ active users, <strong>hundreds of millions of events per day</strong>. The CPU was always overloaded. Performance was degrading. Heat and battery drain made 2-hour sessions painful.</p>
+
+    <div class="ov-stats">
+      <div class="ov-stat"><b>16M+</b><span>students reached · 10M+ active at peak</span></div>
+      <div class="ov-stat"><b>100s&nbsp;of&nbsp;M</b><span>events processed per day</span></div>
+      <div class="ov-stat"><b>90→20%</b><span>CPU load during live class</span></div>
+      <div class="ov-stat"><b>−40%</b><span>battery drain per session</span></div>
+      <div class="ov-stat"><b>50K+</b><span>concurrent classrooms at peak</span></div>
+      <div class="ov-stat"><b>&lt;2s</b><span>reconnect + state sync after drop</span></div>
+    </div>
+
+    <p class="ov-sec">The CPU/GPU rearchitecture</p>
+    <div class="arch">
+      <div class="arch-node">
+        <p class="n-label">The problem</p>
+        <h3>Everything was on the CPU</h3>
+        <p>Voice, sketch rendering, chat, emoji animations, network buffering — all on the CPU. Even 8–16GB RAM devices were overloaded. Battery drain was severe. Heat throttled performance further. The classroom experience was degrading in proportion to session length — the longer the class, the worse it performed.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Rearchitecture · GPU</p>
+        <h3>Sketching moved to the GPU</h3>
+        <p>All sketch rendering — every stroke, update, and redraw — was moved to the GPU via the native iOS and Android graphics APIs. The GPU is purpose-built for this: parallel pixel operations, hardware-accelerated compositing, no CPU competition. <strong>What took multiple CPU update cycles per frame now happened in a single GPU pass</strong> — dramatically faster and cooler.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Rearchitecture · CPU</p>
+        <h3>Voice and network stay on CPU</h3>
+        <p>Voice decoding, chat, WebRTC connection management, and network-layer sync all stayed on the CPU — these are sequential, latency-sensitive operations that the CPU handles well. <strong>The separation freed each processor to do what it's designed for.</strong> 2-hour sessions ran cool with normal battery consumption after the split.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Sync · Backend</p>
+        <h3>Sketch-voice sync per student</h3>
+        <p>Voice and sketch are independent streams — they can drift. A teacher's voice and their sketch stroke have to feel simultaneous to each student, regardless of individual network conditions. Built per-student sync logic that compensated for variable latency at the infrastructure level, not by slowing the stream down to match the worst connection in the room.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Resilience · WebRTC</p>
+        <h3>Drop and rejoin without session loss</h3>
+        <p>Mobile networks drop. A student losing connection mid-class shouldn't lose the session state. <strong>WebRTC connections were made resumable</strong> — on reconnect, the session synced from the last known good state, not from zero. Built the sync framework with event fingerprinting and checksums to detect and fill gaps without interrupting the live session for others.</p>
+      </div>
+      <div class="arch-node">
+        <p class="n-label">Observability · Druid + Cassandra</p>
+        <h3>Device-level visibility at scale</h3>
+        <p>Every client sent a network packet to the backend every 500ms — voice quality, sketch lag, sync state, battery level, signal strength. This was stored in <strong>Cassandra</strong> and queried via <strong>Apache Druid</strong> for real-time observability. Sync issues could be traced to a specific user, device, teacher, or geography — not just "the Middle East region had problems today."</p>
+      </div>
+      <div class="arch-node wide">
+        <p class="n-label">Backend scale</p>
+        <h3>The infrastructure numbers</h3>
+        <p>At peak: <strong>50K+ concurrent WebRTC connections</strong> — each classroom an independent voice + sketch session. Event throughput from all clients: <strong>~6,000 events per second</strong> sustained, higher during lesson start/end spikes. Fingerprint + checksum validation ran per-event at <strong>sub-10ms</strong>. State recovery on reconnect: <strong>under 2 seconds</strong> to full sync. The backend was multi-region across 4 geographies; sessions were pinned per student to their region's infra to minimize latency while WebRTC traversal handled the last mile.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRAJECTORY (stub) -->
+<div class="overlay" id="ov-traj" role="dialog" aria-modal="true" aria-label="Career trajectory deep dive" tabindex="-1" hidden>
+  <div class="overlay-inner">
+    <p class="ov-kicker">Engineering deep dive · Trajectory</p>
+    <h2 class="ov-title">13 years<span class="dim">.</span></h2>
+    <p class="ov-sub">From Java developer to Head of Engineering — five companies, three geographies, one consistent thread: staying close to the engineering while owning more of the business. Story coming soon.</p>
+    <div class="stub-center">
+      <p class="s-n">13yr</p>
+      <p>Full story in progress.</p>
+    </div>
+  </div>
+</div>
+
+<!-- close button (shared) -->
+<button class="overlay-close" id="overlay-close" aria-label="Close">✕</button>
+
+<script>
+(function(){
+  const deck = document.getElementById('deck');
+  const slides = Array.from(deck.querySelectorAll('.slide'));
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const bar = document.querySelector('.progress');
+  const closeBtn = document.getElementById('overlay-close');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let idx = 0;
+  let activeOverlay = null;
+
+  total.textContent = String(slides.length);
+  if (!reduce) document.body.classList.add('armed');
+
+  const pad = n => String(n + 1).padStart(2, '0');
+
+  /* ---- OVERLAY ---- */
+  function openOverlay(id) {
+    if (activeOverlay) closeOverlay(false);
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.hidden = false;
+    requestAnimationFrame(() => {
+      el.classList.add('open');
+      closeBtn.classList.add('visible');
+      document.body.style.overflow = 'hidden';
+      el.scrollTop = 0;
+      el.focus();
+    });
+    activeOverlay = el;
+  }
+
+  function closeOverlay(restoreFocus) {
+    if (!activeOverlay) return;
+    const el = activeOverlay;
+    el.classList.remove('open');
+    closeBtn.classList.remove('visible');
+    document.body.style.overflow = '';
+    const done = () => { el.hidden = true; };
+    if (reduce) { done(); } else { el.addEventListener('transitionend', done, {once: true}); }
+    activeOverlay = null;
+  }
+
+  document.querySelectorAll('[data-overlay]').forEach(btn => {
+    btn.addEventListener('click', () => openOverlay(btn.dataset.overlay));
+  });
+  closeBtn.addEventListener('click', () => closeOverlay(true));
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && activeOverlay) { closeOverlay(true); return; }
+    if (activeOverlay) return; // don't navigate deck while overlay is open
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    const t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
+    if (['ArrowDown','PageDown',' ','j'].includes(e.key)) { e.preventDefault(); go(idx + 1); }
+    else if (['ArrowUp','PageUp','k'].includes(e.key))    { e.preventDefault(); go(idx - 1); }
+    else if (e.key === 'Home'){ e.preventDefault(); go(0); }
+    else if (e.key === 'End') { e.preventDefault(); go(slides.length - 1); }
+  });
+
+  /* ---- DECK ---- */
+  function activate(i){
+    idx = i;
+    cur.textContent = pad(i);
+    bar.style.width = ((i + 1) / slides.length * 100) + '%';
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+    slides[i].classList.add('on');
+  }
+
+  function go(i){
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    slides[i].scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+  }
+
+  prev.addEventListener('click', () => go(idx - 1));
+  next.addEventListener('click', () => go(idx + 1));
+
+  const counted = new WeakSet();
+  function countUp(slide){
+    if (reduce || counted.has(slide)) return;
+    counted.add(slide);
+    slide.querySelectorAll('[data-count]').forEach(el => {
+      const target = parseInt(el.dataset.count, 10);
+      const prefix = el.textContent.trim().startsWith('+') ? '+' : '';
+      const t0 = performance.now(), dur = 900;
+      function tick(t){
+        const p = Math.min(1, (t - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 4);
+        el.textContent = prefix + Math.round(target * eased);
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting && en.intersectionRatio > 0.5) {
+        activate(slides.indexOf(en.target));
+        countUp(en.target);
+      }
+    });
+  }, {root: deck, threshold: [0.6]});
+  slides.forEach(s => io.observe(s));
+
+  activate(0);
+})();
+</script>
+
+</body>
+</html>

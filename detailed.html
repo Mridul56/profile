@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mridul Gupta — Head of Engineering · Detailed Profile</title>
+<meta name="description" content="Detailed profile of Mridul Gupta — Head of Engineering at Zolve. Fintech architecture, AI & agentic systems, distributed realtime systems, mobile. Bengaluru, India.">
+<meta name="theme-color" content="#0A0B10">
+<meta property="og:title" content="Mridul Gupta — Head of Engineering · Detailed Profile">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0B10'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='15' font-weight='700' fill='%236B8CFF' text-anchor='middle'%3EMG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:oklch(0.16 0.015 270);
+    --ink-2:oklch(0.20 0.02 268);
+    --line:oklch(0.32 0.03 268);
+    --ivory:oklch(0.97 0.008 90);
+    --ivory-dim:oklch(0.78 0.015 268);
+    --blue:oklch(0.68 0.19 264);
+    --blue-deep:oklch(0.45 0.24 264);
+    --font-d:'Archivo', sans-serif;
+    --font-m:'JetBrains Mono', monospace;
+    --ease:cubic-bezier(0.22,1,0.36,1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-d);
+    background:var(--ink);
+    color:var(--ivory);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; transition:color 0.15s ease, border-color 0.15s ease;}
+  ::selection{background:var(--blue-deep); color:var(--ivory);}
+  :focus-visible{outline:2px solid var(--blue); outline-offset:4px;}
+  h1,h2,h3{text-wrap:balance;}
+  p{text-wrap:pretty;}
+  strong{color:var(--ivory); font-weight:600;}
+
+  .skip-link{
+    position:fixed; left:16px; top:-72px; z-index:100;
+    background:var(--blue); color:var(--ink);
+    font-family:var(--font-m); font-size:13px; font-weight:700;
+    padding:14px 20px; text-decoration:none;
+    transition:top 0.15s ease;
+  }
+  .skip-link:focus{top:16px;}
+
+  .wrap{max-width:1240px; margin:0 auto; padding:0 clamp(20px,5vw,56px);}
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    display:flex; justify-content:space-between; align-items:center; gap:14px;
+    padding:22px 0; border-bottom:1px solid var(--line);
+    font-family:var(--font-m); font-size:13.5px; flex-wrap:wrap;
+  }
+  .topbar .id{color:var(--blue); font-weight:700; letter-spacing:0.06em;}
+  .topbar a{text-decoration:none; color:var(--ivory-dim); padding:10px 0;}
+  .topbar a:hover{color:var(--blue);}
+
+  /* ---------- HEADER ---------- */
+  .head{padding:clamp(48px,8vh,88px) 0 clamp(36px,6vh,64px); border-bottom:1px solid var(--line);}
+  .head .kicker{
+    font-family:var(--font-m); font-size:14px; color:var(--blue);
+    letter-spacing:0.1em; text-transform:uppercase; margin-bottom:20px;
+  }
+  .head h1{
+    font-weight:800; font-size:clamp(44px,7.5vw,92px);
+    line-height:0.98; letter-spacing:-0.025em;
+  }
+  .head h1 span{color:transparent; -webkit-text-stroke:1.5px var(--ivory-dim);}
+  @supports not (-webkit-text-stroke:1px black){ .head h1 span{color:var(--ivory-dim);} }
+  .head .summary{
+    font-size:clamp(16.5px,1.9vw,20px); font-weight:300; color:var(--ivory-dim);
+    max-width:780px; margin-top:28px; line-height:1.7;
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .cols{
+    display:grid; grid-template-columns:280px 1fr; gap:clamp(32px,5vw,72px);
+    padding:clamp(40px,6vh,64px) 0;
+  }
+  @media (max-width:880px){ .cols{grid-template-columns:1fr;} }
+
+  /* ---------- ASIDE ---------- */
+  aside{align-self:start; position:sticky; top:24px;}
+  @media (max-width:880px){ aside{position:static;} }
+  aside .box{margin-bottom:36px;}
+  aside h2{
+    font-family:var(--font-m); font-size:12.5px; font-weight:700;
+    color:var(--blue); text-transform:uppercase; letter-spacing:0.1em;
+    margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  aside ul{list-style:none;}
+  aside li{font-size:15px; padding:5px 0; color:var(--ivory-dim); font-weight:400;}
+  aside .box p{font-size:15px; color:var(--ivory-dim); padding:3px 0;}
+  aside a{display:block; text-decoration:none; font-family:var(--font-m); font-size:13.5px; padding:7px 0; color:var(--ivory);}
+  aside a:hover{color:var(--blue);}
+  aside .t{font-family:var(--font-m); font-size:13.5px;}
+
+  /* ---------- MAIN ---------- */
+  .main h2.sec{
+    font-weight:800; font-size:clamp(26px,3.4vw,40px); letter-spacing:-0.015em;
+    text-transform:uppercase; margin-bottom:8px;
+  }
+  .main .sec-note{
+    font-family:var(--font-m); font-size:13px; color:var(--ivory-dim); margin-bottom:36px;
+  }
+
+  .job{padding:clamp(28px,4.5vh,44px) 0; border-top:1px solid var(--line);}
+  .job-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;}
+  .job-head h3{font-size:clamp(24px,3vw,34px); font-weight:800; letter-spacing:-0.015em;}
+  .job-head .dates{
+    font-family:var(--font-m); font-size:13px; font-weight:700;
+    color:var(--ink); background:var(--blue); padding:5px 10px; flex-shrink:0;
+  }
+  .job .role{
+    font-family:var(--font-m); font-size:14.5px; color:var(--blue);
+    margin-top:8px; font-weight:500;
+  }
+  .job .meta{font-family:var(--font-m); font-size:12.5px; color:var(--ivory-dim); margin-top:4px;}
+  .job .sum{
+    font-size:16px; font-weight:300; color:var(--ivory-dim);
+    max-width:760px; margin-top:16px; line-height:1.7;
+  }
+
+  .pulls{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;}
+  .pulls .p{border:1px solid var(--line); padding:12px 16px;}
+  .pulls .p b{display:block; font-family:var(--font-m); font-size:22px; font-weight:700; color:var(--blue);}
+  .pulls .p span{font-family:var(--font-m); font-size:11.5px; color:var(--ivory-dim);}
+
+  .grp{margin-top:28px;}
+  .grp h4{
+    font-family:var(--font-m); font-size:12.5px; font-weight:700;
+    color:var(--blue); text-transform:uppercase; letter-spacing:0.08em;
+    margin-bottom:12px;
+  }
+  ul.b{list-style:none; max-width:800px;}
+  ul.b li{
+    position:relative; padding-left:20px; margin-bottom:11px;
+    font-size:15.5px; font-weight:300; color:var(--ivory-dim); line-height:1.65;
+  }
+  ul.b li::before{
+    content:"▸"; position:absolute; left:0; top:1px;
+    color:var(--blue); font-size:12px;
+  }
+
+  .progression{
+    margin-top:clamp(36px,6vh,56px); padding:clamp(26px,4vh,40px) clamp(22px,3vw,40px);
+    border:1px solid var(--line); background:var(--ink-2);
+  }
+  .progression h2{
+    font-family:var(--font-m); font-size:12.5px; font-weight:700;
+    color:var(--blue); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:14px;
+  }
+  .progression p{
+    font-size:clamp(17px,2vw,21px); font-weight:300; color:var(--ivory-dim); line-height:1.7;
+    max-width:820px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .foot{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    padding:28px 0 40px; border-top:1px solid var(--line); margin-top:24px;
+    font-family:var(--font-m); font-size:12.5px; color:var(--ivory-dim);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *, *::before, *::after{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    body{background:#fff; color:#000; font-size:12px;}
+    strong{color:#000;}
+    .head h1 span{-webkit-text-stroke:0; color:#000;}
+    .topbar .deck-link, .skip-link{display:none;}
+    aside{position:static;}
+    .cols{grid-template-columns:220px 1fr; gap:28px;}
+    .job-head .dates{background:none; color:#333; border:1px solid #999; padding:2px 8px;}
+    .head .kicker, .job .role, .grp h4, aside h2, .pulls .p b, .progression h2{color:#333;}
+    .head .summary, .job .sum, ul.b li, aside li, aside .box p, .progression p, .pulls .p span{color:#222;}
+    .job, .cols, .topbar, .head, .foot, .pulls .p, .progression, aside h2{border-color:#ccc;}
+    .progression{background:#fff;}
+    .job{break-inside:avoid;}
+    a{text-decoration:none; color:#000;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#experience">Skip to experience</a>
+
+<div class="wrap">
+
+  <header class="topbar">
+    <span class="id">MRIDUL GUPTA — DETAILED PROFILE</span>
+    <a class="deck-link" href="presentation.html">← presentation version</a>
+  </header>
+
+  <!-- ======= HEADER ======= -->
+  <section class="head">
+    <p class="kicker">Head of Engineering · Zolve · Bengaluru</p>
+    <h1>Mridul <span>Gupta</span></h1>
+    <p class="summary">Engineering leader with a <strong>hands-on technology background</strong> spanning product engineering, mobile, distributed/realtime systems, fintech architecture, data/ML and AI. Currently leading <strong>company-wide engineering at Zolve</strong> while remaining closely involved in architecture, platform decisions and AI systems.</p>
+  </section>
+
+  <div class="cols">
+
+    <!-- ======= ASIDE ======= -->
+    <aside>
+      <div class="box">
+        <h2>Contact</h2>
+        <a href="mailto:mridulgupta56@gmail.com">mridulgupta56@gmail.com</a>
+        <a href="tel:+918588851003">+91 85888 51003</a>
+        <a href="https://www.linkedin.com/in/mridul-gupta-0bb6a222" target="_blank" rel="noopener">linkedin ↗</a>
+      </div>
+      <div class="box">
+        <h2>Core Areas</h2>
+        <ul>
+          <li>Engineering Leadership</li>
+          <li>Distributed Systems</li>
+          <li>Mobile Engineering</li>
+          <li>Fintech Architecture</li>
+          <li>AI &amp; Agentic Systems</li>
+          <li>Data &amp; ML Platforms</li>
+          <li>Realtime Systems</li>
+          <li>Platform Engineering</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h2>Technology</h2>
+        <ul class="t">
+          <li class="t">Swift · Kotlin · Java</li>
+          <li class="t">iOS · Android · React Native</li>
+          <li class="t">RxSwift · RxJava</li>
+          <li class="t">Apache Druid · Cassandra</li>
+          <li class="t">Apache Flink</li>
+          <li class="t">WebRTC · Agora</li>
+          <li class="t">Databricks · Metabase · SQL</li>
+          <li class="t">LangGraph · LangSmith · CrewAI</li>
+          <li class="t">Retell AI · ElevenLabs</li>
+          <li class="t">Claude Code · Codex</li>
+          <li class="t">OpenRouter · OpenCode</li>
+          <li class="t">Ollama · Groq</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h2>Education</h2>
+        <p>B.Tech, Information Technology</p>
+        <p>Motilal Nehru National Institute of Technology · 2009–2013</p>
+      </div>
+      <div class="box">
+        <h2>Language</h2>
+        <p>English — Full Professional</p>
+      </div>
+    </aside>
+
+    <!-- ======= MAIN ======= -->
+    <div class="main" id="experience">
+      <h2 class="sec">Professional Experience</h2>
+      <p class="sec-note">2013 — present · four companies · engineer → head of engineering</p>
+
+      <!-- ZOLVE -->
+      <article class="job">
+        <div class="job-head">
+          <h3>Zolve</h3>
+          <span class="dates">JAN 2022 — PRESENT</span>
+        </div>
+        <p class="role">Head of Engineering</p>
+        <p class="meta">bengaluru · fintech</p>
+        <p class="sum">Lead the entire engineering organization across <strong>backend, frontend, mobile, data engineering, DevOps and AI</strong>. Work closely with the founder on technology and product strategy, customer experience, acquisition, retention, engineering cost and business outcomes.</p>
+
+        <div class="pulls">
+          <div class="p"><b>3</b><span>geographies · US / CA / UK</span></div>
+          <div class="p"><b>100+</b><span>agents in production</span></div>
+          <div class="p"><b>+72%</b><span>AI voice vs human collectors</span></div>
+          <div class="p"><b>90%</b><span>real-time settlement</span></div>
+          <div class="p"><b>&lt;120ms</b><span>app launch · was 500ms</span></div>
+        </div>
+
+        <div class="grp">
+          <h4>Fintech Architecture &amp; Platform</h4>
+          <ul class="b">
+            <li><strong>Own architecture and engineering direction</strong> for a multi-bank, multi-geography fintech platform operating across the US, Canada and UK — scalability, reliability, latency, cost and regulatory requirements.</li>
+            <li><strong>Data residency &amp; governance by design</strong> — data stored and processed per operating-country requirements, with the platform flexible enough to add geographies without significant architectural rework.</li>
+            <li><strong>Payment routing engine</strong> optimizing transaction routing and settlement — lifted real-time settlement coverage from <strong>10% to 90%</strong> in six months, replacing a cycle that took up to 3 days, while lowering payment-processing and collection costs.</li>
+            <li><strong>Lightweight CQRS layer</strong> in front of the highest-traffic services — app launch and first-load latency cut from <strong>500ms to under 120ms</strong> without rearchitecting the platform.</li>
+            <li><strong>Realtime rule &amp; signal-processing platform on Apache Flink</strong> for fraud analysis, realtime compliance and credit monitoring — the fraud pipeline already shows a <strong>+20% lift in anomaly detection</strong>; also worked with third-party fraud providers on realtime detection.</li>
+            <li><strong>Multi-country onboarding</strong> for customers moving across Canada, the UK and US — country-specific requirements vs onboarding cost vs approval rates.</li>
+            <li><strong>Feature store</strong> supporting ML models including churn prediction (<strong>78% recall, 0.83 F1, ~89% precision</strong>) and customer LTV — a common layer for managing and serving features.</li>
+            <li><strong>Leading the migration to Databricks</strong> from an internally built warehouse with drifting data quality — company-wide data access and the observability a fintech needs from its own data.</li>
+          </ul>
+        </div>
+
+        <div class="grp">
+          <h4>AI &amp; Agentic Systems</h4>
+          <ul class="b">
+            <li><strong>Built Zolve's AI capability from the ground up</strong> — starting with RAG-based systems and natural-language-to-SQL for business analytics.</li>
+            <li><strong>Semantic data layer with deterministic query generation</strong> — business users ask questions in natural language while schema and data stay under control.</li>
+            <li><strong>Internal no-code agent platform</strong> — single-task agents, agent-to-agent handoffs and multi-step agentic workflows, with session management, memory, observability and analytics.</li>
+            <li><strong>Scaled to 100+ production agents</strong> across dispute management, churn management, customer support and escalations — <strong>25% of disputes</strong> resolved end-to-end and <strong>90% of compliance reporting &amp; QC</strong> now run on agents, with humans reviewing exceptions.</li>
+            <li><strong>AI voice collections</strong> — ElevenLabs voices orchestrated on the Retell AI agentic platform, outperforming human collectors by <strong>72%</strong> in the lower bucket, the earliest and highest-volume stage of delinquency.</li>
+            <li><strong>Fraud-detection dashboards in Metabase</strong> on a governed data layer connected to Anthropic models to surface fraud patterns.</li>
+            <li><strong>Engineering layer on LangGraph and LangSmith</strong> — reliability, observability, cost management, sessions, memory and continuous improvement.</li>
+          </ul>
+        </div>
+
+        <div class="grp">
+          <h4>Product Velocity &amp; Mobile</h4>
+          <ul class="b">
+            <li><strong>Native iOS + Android → React Native</strong> — release timelines cut by <strong>50%</strong> and time-to-ship for new features by <strong>60%</strong>, where the banking product didn't need realtime-classroom-grade platform complexity.</li>
+            <li><strong>Engineers per release: 8 → 2–3</strong> — roughly a 70% smaller footprint per ship once both platforms converged on one codebase.</li>
+            <li><strong>No-code release platform</strong> — product managers compose screens and features from predefined widgets and templates, decoupled from the traditional mobile-release cycle.</li>
+          </ul>
+        </div>
+
+        <div class="grp">
+          <h4>Engineering Leadership</h4>
+          <ul class="b">
+            <li><strong>Work directly with the founder and leadership</strong> on technology investment, engineering economics, acquisition, retention, churn and P&amp;L trade-offs; communicate technology strategy and business impact to investors.</li>
+            <li><strong>Build teams around individual strengths and motivations</strong> — growth paths per engineer, a high engineering bar, and consistently low attrition.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- NOON -->
+      <article class="job">
+        <div class="job-head">
+          <h3>Noon Academy</h3>
+          <span class="dates">SEP 2018 — JAN 2022</span>
+        </div>
+        <p class="role">Engineering Leader — Classroom &amp; Platform</p>
+        <p class="meta">bengaluru · edtech</p>
+        <p class="sum">Started by leading mobile engineering for the Classroom product, then moved into engineering leadership for the <strong>Classroom and Platform organization</strong>.</p>
+
+        <div class="pulls">
+          <div class="p"><b>10M+</b><span>active users · 16M+ reached</span></div>
+          <div class="p"><b>100s&nbsp;of&nbsp;M</b><span>events per day</span></div>
+          <div class="p"><b>20+</b><span>engineer org</span></div>
+          <div class="p"><b>90→20%</b><span>CPU load · −40% battery</span></div>
+        </div>
+
+        <div class="grp">
+          <h4>Scale &amp; Realtime Systems</h4>
+          <ul class="b">
+            <li><strong>Built the Classroom app from scratch</strong> across iOS and Android to <strong>10M+ active users</strong> (16M+ total students reached) across the Middle East, Egypt, India and Pakistan.</li>
+            <li><strong>Built and led a 20+ engineer organization</strong> covering mobile, backend, realtime infrastructure and platform engineering.</li>
+            <li><strong>Realtime classroom system processing hundreds of millions of events per day</strong> — 50K+ concurrent WebRTC sessions at peak, ~6K events/sec sustained — across widely varying network conditions and geographies.</li>
+            <li><strong>WebRTC &amp; Agora</strong> for realtime voice and interactive classrooms — solved synchronization between voice and sketch streams.</li>
+            <li><strong>CPU/GPU rearchitecture</strong> — all sketch rendering moved to the GPU (native iOS/Android graphics APIs), freeing the CPU for voice, chat, and network sync. CPU load during a live class: <strong>90% → 20%</strong>. Battery drain per session: <strong>−40%</strong>. 2-hour classes ran cool with no heat throttling. State recovery after a network drop: <strong>under 2 seconds</strong>.</li>
+            <li><strong>Session replayability</strong> — independent voice and sketch event streams reconstructed and played back in sync on the user's device.</li>
+            <li><strong>Automatic sync framework</strong> using event fingerprinting and checksums — missing/delayed events identified per device and corrected without interrupting live sessions.</li>
+            <li><strong>Device-level observability</strong> — which user, teacher, session or geography was out of sync, not just aggregate vendor metrics; built on Apache Druid, Cassandra and event-processing infrastructure.</li>
+            <li><strong>Owned the reliability / latency / cost / experience trade-off</strong> at significant scale.</li>
+          </ul>
+        </div>
+
+        <div class="grp">
+          <h4>Leadership &amp; Culture</h4>
+          <ul class="b">
+            <li><strong>Individual growth and motivation first</strong> in a technically challenging environment — very low attrition across a 3+ year tenure.</li>
+            <li><strong>Worked closely with founders</strong> on product and technology direction; continued supporting the organization through the transition after leaving.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 1MG -->
+      <article class="job">
+        <div class="job-head">
+          <h3>Tata Digital / 1mg</h3>
+          <span class="dates">JUL 2017 — AUG 2018</span>
+        </div>
+        <p class="role">Sr. iOS Developer</p>
+        <p class="meta">bengaluru · healthtech</p>
+        <div class="grp">
+          <ul class="b">
+            <li><strong>End-to-end pharmacy and diagnostic test-booking platforms</strong> — product experience, backend services and integrations.</li>
+            <li><strong>Shipped customer-facing healthcare workflows end to end</strong>, expanding from mobile into broader backend and product engineering.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- YUDEK -->
+      <article class="job">
+        <div class="job-head">
+          <h3>Yudek</h3>
+          <span class="dates">NOV 2016 — JUL 2017</span>
+        </div>
+        <p class="role">Founding Engineer</p>
+        <p class="meta">bengaluru</p>
+        <div class="grp">
+          <ul class="b">
+            <li><strong>Three-person founding engineering team</strong> — built a smart social-bookmarking product from the ground up across iOS and Java backend.</li>
+            <li><strong>Owned features end to end</strong> across mobile and backend — architecture, product and execution with limited resources.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- SAPIENT -->
+      <article class="job">
+        <div class="job-head">
+          <h3>SapientNitro</h3>
+          <span class="dates">OCT 2013 — OCT 2016</span>
+        </div>
+        <p class="role">Junior Associate → Associate L1 → Associate L2</p>
+        <p class="meta">software engineering</p>
+        <div class="grp">
+          <ul class="b">
+            <li><strong>Java developer first, then native mobile</strong> across iOS and Android.</li>
+            <li><strong>Swift, Java, Kotlin, RxSwift, RxJava</strong> — consumer applications end to end.</li>
+            <li><strong>McDonald's (Europe/US) and Avon (UK)</strong> — shipped for global consumer brands.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- PROGRESSION -->
+      <section class="progression" aria-label="Career progression">
+        <h2>Career Progression</h2>
+        <p>Started as a hands-on software engineer and progressively moved into product engineering, distributed and realtime systems, engineering leadership and <strong>company-wide technology ownership</strong>. Today, I remain closely involved in architecture and technology while also owning <strong>people, product, cost and business decisions</strong>.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>MRIDUL GUPTA</span>
+    <span>BENGALURU, INDIA</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
